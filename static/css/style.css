@@ -1,0 +1,179 @@
+/*body {
+  background-image: url('prog.jpg');
+  background-repeat: no-repeat;  
+  background-size: cover;  
+  background-position: center;  
+  background-attachment: fixed; 
+}  
+  */
+body{
+    margin: 0;
+    padding-left: 25px;
+    box-sizing: border-box;
+    place-items: center;
+    justify-content: center;
+
+}
+
+main{
+    padding-left: 270px;
+}
+
+main img{
+    max-width: 100%;
+}
+
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: content-box;
+}
+
+
+.sidebar {
+  width: 250px; 
+  height: 100vh; 
+  background-color: #ffffff; 
+  color: black;
+  padding: 10px;
+  left: 0;
+  top: 0;
+  position: fixed; 
+  box-shadow: 6px 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar nav ul li a{
+    color: black;
+    display: block;
+}
+
+
+.sidebar nav ul li {
+  padding: 10px 50px;
+  border-bottom: 2px solid rgb(0, 0, 0);
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #790c0a;
+}
+
+.contenido {
+  margin-left: 230px; 
+  padding: 20px;
+  width: calc(100% - 280px);
+}
+
+h2{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    padding: 20px 0 10px;
+    border-bottom: 2px solid #000000;
+    font: normal 36px Arial, sans-serif;
+}
+
+p{
+    text-align: justify;
+    font: normal 18px Arial, sans-serif;
+}
+
+.footer{
+    background-color: black;
+    color: white;
+    padding: 35px 0 10px;
+    position: -ms-page;
+    width: calc(100% + 80px);
+    text-align: justify;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 10px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  color: #3498db;
+}
+
+.social-icons a {
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.social-icons a:hover {
+  color: #3498db;
+}
+
+.imagen-boton {
+    display: block;
+    transition: transform 0.3s;
+    transform: scale(0.04);
+}
+
+.imagen-boton:hover {
+    transform: scale(0.06); 
+}
+
+.imagen-boton img {
+    border: none;
+    cursor: pointer; 
+}
+
+.hombre-corbata{
+  transform: scale(0.7);
+  position: sticky;
+  max-width: 50%;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  height: auto;
+  border: 4px solid #000000;
+
+}
+
+.container {
+  display: flex;         
+  align-items: center;  
+  gap: 2px;           
+  max-width: 1100px;     
+  margin: 0 auto;    
+}
+
+.h4 {
+    font-size: 3.5rem;               /* 56px basado en tamaño root (más escalable) */
+    font-weight: 600;                /* Semi-bold para elegancia (no demasiado grueso) */
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif; /* Fuente profesional */
+    text-align: center;
+    margin: 1.5rem 0 2rem;          /* 24px top | 0 lados | 32px bottom */
+    color: #222;                    /* Negro más suave para mejor legibilidad */
+    line-height: 1.2;               /* Espaciado entre líneas óptimo */
+    letter-spacing: -0.5px;         /* Kerning sutil para headlines */
+    text-transform: none;           /* Mantiene capitalización natural */
+    text-shadow: none;              /* Limpio y moderno */
+    padding: 0 1rem;                /* Padding lateral en móviles */
+    background: linear-gradient(90deg, #2c3e50, #3498db); /* Degradado sutil de texto */
+    -webkit-background-clip: text;  /* Aplica degradado SOLO al texto */
+    background-clip: text;
+    color: transparent;             /* Oculta el color para mostrar el degradado */
+}

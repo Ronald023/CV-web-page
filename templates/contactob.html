@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | Ronald Martínez</title>
+    <meta name="description" content="Formulario de contacto para ponerte en contacto conmigo">
+    <link rel="stylesheet" href="/static/css/maincss.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile">
+                <img src="/static/images/sidebar.jpg" alt="Foto de perfil" class="profile-img">
+                <h1>Ronald Martínez</h1>
+                <p class="tagline">Programador</p>
+            </div>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="iniciob.html"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="sobremib.html"><i class="fas fa-user"></i> Sobre mí</a></li>
+                    <li><a href="curriculumb.html"><i class="fas fa-file-alt"></i> Curriculum</a></li>
+                    <li><a href="portafoliob.html"><i class="fas fa-briefcase"></i> Portafolio</a></li>
+                    <li><a href="contactob.html" class="active"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Ronald023"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </aside>
+
+        <main class="contenido">
+            <section class="contact-section">
+    <h2>Contacto</h2>
+    <p class="section-intro">Complete el formulario y me pondré en contacto lo antes posible</p>
+
+    <form id="contactForm" class="contact-form" action="/contactob" method="POST">
+        <div class="form-group">
+            <input type="text" id="name" name="name" required>
+            <label for="name">Nombre completo</label>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="form-group">
+            <input type="email" id="email" name="email" required>
+            <label for="email">Correo electrónico</label>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="form-group">
+            <input type="text" id="subject" name="subject" required>
+            <label for="subject">Asunto</label>
+            <div class="underline"></div>
+        </div>
+        
+        <div class="form-group">
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <label for="message">Mensaje</label>
+            <div class="underline"></div>
+        </div>
+        
+        <button type="submit" class="btn submit-btn">
+            <span>Enviar mensaje</span>
+            <div class="loading-spinner"></div>
+        </button>
+        
+        <div id="formMessage" class="form-message"></div>
+    </form>
+</section>
+            <section class="contact-section">
+                <h1>Contácta<span class="highlight">me</span></h1>
+                <p class="subtitle">¿Tienes un proyecto en mente o quieres saber más sobre mi trabajo?</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="info-card">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>ronaldmartinezgcbs@gmail.com</p>
+                            <a href="mailto:ronaldmartinezgcbs@gmail.com">Enviar mensaje</a>
+                        </div>
+                        
+                        <div class="info-card">
+                            <i class="fas fa-phone"></i>
+                            <h3>Teléfono</h3>
+                            <p>+123 456 7890</p>
+                            <a href="tel:+1234567890">Llamar ahora</a>
+                        </div>
+                        
+                        <div class="info-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Ubicación</h3>
+                            <p>Bucaramanga, Colombia</p>
+                            <a href="#" target="_blank">Ver en mapa</a>
+                        </div>
+                    </div>
+                
+                </div>
+                
+             
+                <div class="map-container">
+                    <h2>¿Dónde encontrarme?</h2>
+                    <div class="map">
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3172.4111849266105!2d-122.00795932405312!3d37.33277297210007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb596e9e188fd%3A0x3b0d8391510688f0!2sApple%20Park!5e0!3m2!1ses!2sco!4v1751381078314!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <footer class="main-footer">
+        <p>&copy; 2025 Ronald MB. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = contactForm.querySelector('.submit-btn');
+    const loadingSpinner = submitBtn.querySelector('.loading-spinner');
+    const formMessage = document.getElementById('formMessage');
+
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Mostrar estado de carga
+        submitBtn.disabled = true;
+        loadingSpinner.style.display = 'inline-block';
+        formMessage.textContent = '';
+        formMessage.className = 'form-message';
+        
+        try {
+            const formData = new FormData(contactForm);
+            
+            const response = await fetch('/contacto', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                formMessage.textContent = data.message;
+                formMessage.classList.add('success');
+                contactForm.reset();
+            } else {
+                formMessage.textContent = data.message;
+                formMessage.classList.add('error');
+            }
+        } catch (error) {
+            formMessage.textContent = 'Error de conexión. Por favor inténtalo nuevamente.';
+            formMessage.classList.add('error');
+            console.error('Error:', error);
+        } finally {
+            submitBtn.disabled = false;
+            loadingSpinner.style.display = 'none';
+        }
+    });
+});
+    </script>
+
+</body>
+</html>
