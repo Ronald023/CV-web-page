@@ -13,7 +13,7 @@ from werkzeug.utils import secure_filename
 application = Flask(__name__, static_folder='static', template_folder='templates')
 CORS(application)
 
-# Configuración
+# Configuracións
 CONFIG = {
     'EXCEL_FILE': 'contactos_ronald.xlsx',
     'EMAIL': {
